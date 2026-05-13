@@ -1,0 +1,180 @@
+templates:
+  # ==================== 代码审查模板 ====================
+  - id: "code_review"
+    name: "代码审查助手"
+    version: "1.0"
+    description: "用于审查代码质量、安全性、性能等问题"
+    
+    system_prompt: |
+      你是资深代码审查专家。
+      专注领域：{{focus_area}}
+      审查标准：{{standard}}
+      
+      请从以下维度进行审查：
+      1. 代码质量（可读性、可维护性）
+      2. 安全性（潜在漏洞、敏感信息泄露）
+      3. 性能（性能瓶颈、资源消耗）
+      4. 规范性（命名规范、注释完整性）
+    
+    user_prompt_template: |
+      请审查以下代码：
+      
+      ```{{language}}
+      {{code}}
+      ```
+      
+      特别关注：{{focus_points}}
+      
+      请逐项分析并给出改进建议。
+    
+    variables:
+      - name: "focus_area"
+        description: "审查关注领域"
+        type: "string"
+        defaultValue: "代码质量、安全性、性能"
+      - name: "standard"
+        description: "审查标准（行业规范/公司规范）"
+        type: "string"
+        defaultValue: "阿里巴巴Java开发手册"
+      - name: "language"
+        description: "代码编程语言"
+        type: "enum"
+        options: ["java", "python", "javascript", "go", "rust"]
+        defaultValue: "java"
+      - name: "code"
+        description: "待审查的代码内容"
+        type: "string"
+        required: true
+      - name: "focus_points"
+        description: "特别关注的审查点"
+        type: "string"
+        defaultValue: "SQL注入风险、性能瓶颈"
+    
+    metadata:
+      author: "空少"
+      created_at: "2026-04-29"
+      tags: ["code-review", "quality", "security"]
+      examples:
+        - description: "审查Java代码安全性"
+          variables:
+            focus_area: "安全性"
+            standard: "OWASP安全规范"
+            language: "java"
+            code: "public class UserController { ... }"
+            focus_points: "SQL注入、XSS漏洞"
+
+  # ==================== 文章写作模板 ====================
+  - id: "article_writer"
+    name: "文章写作助手"
+    version: "1.0"
+    description: "用于撰写技术文章、博客、文档等"
+    
+    system_prompt: |
+      你是资深技术写作专家。
+      写作风格：{{writing_style}}
+      目标受众：{{target_audience}}
+      
+      写作要求：
+      1. 结构清晰，逻辑严密
+      2. 语言简洁，避免冗余
+      3. 适当使用代码示例和图表说明
+      4. 标题和小标题层次分明
+    
+    user_prompt_template: |
+      请撰写一篇技术文章：
+      
+      主题：{{topic}}
+      字数要求：{{word_count}}字左右
+      核心内容：{{core_content}}
+      
+      参考要点：{{reference_points}}
+    
+    variables:
+      - name: "writing_style"
+        description: "写作风格"
+        type: "enum"
+        options: ["技术严谨", "通俗易懂", "故事化", "实战教程"]
+        defaultValue: "技术严谨"
+      - name: "target_audience"
+        description: "目标受众"
+        type: "enum"
+        options: ["初学者", "中级开发者", "资深工程师", "架构师"]
+        defaultValue: "中级开发者"
+      - name: "topic"
+        description: "文章主题"
+        type: "string"
+        required: true
+      - name: "word_count"
+        description: "目标字数"
+        type: "integer"
+        defaultValue: 3000
+      - name: "core_content"
+        description: "核心内容要点"
+        type: "string"
+        required: true
+      - name: "reference_points"
+        description: "参考要点或参考资料"
+        type: "string"
+        defaultValue: ""
+    
+    metadata:
+      author: "空少"
+      created_at: "2026-04-29"
+      tags: ["article", "writing", "blog"]
+
+  # ==================== 翻译模板 ====================
+  - id: "translator"
+    name: "翻译助手"
+    version: "1.0"
+    description: "用于多语言翻译，支持技术文档翻译"
+    
+    system_prompt: |
+      你是资深翻译专家，精通{{source_language}}和{{target_language}}。
+      翻译风格：{{translation_style}}
+      
+      翻译要求：
+      1. 准确传达原文含义
+      2. 保持技术术语一致性
+      3. 符合目标语言的表达习惯
+      4. 保留原文的代码块和格式
+    
+    user_prompt_template: |
+      请将以下{{source_language}}文本翻译成{{target_language}}：
+      
+      {{text}}
+    
+    variables:
+      - name: "source_language"
+        description: "源语言"
+        type: "enum"
+        options: ["中文", "英文", "日文", "韩文"]
+        required: true
+      - name: "target_language"
+        description: "目标语言"
+        type: "enum"
+        options: ["中文", "英文", "日文", "韩文"]
+        required: true
+      - name: "translation_style"
+        description: "翻译风格"
+        type: "enum"
+        options: ["直译", "意译", "技术文档风格"]
+        defaultValue: "技术文档风格"
+      - name: "text"
+        description: "待翻译的文本内容"
+        type: "string"
+        required: true
+    
+    metadata:
+      author: "空少"
+      created_at: "2026-04-29"
+      tags: ["translation", "language"]
+
+# ==================== 全局配置 ====================
+global_config:
+  default_model: "gpt-4"
+  max_tokens: 4000
+  temperature: 0.7
+  
+  # 模板存储路径（可扩展为数据库）
+  storage_type: "file"
+  storage_path: "resources/templates/"

@@ -1,0 +1,121 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    Maven 3.9.15 + JDK 17 配置完成 ✅                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📦 配置概览
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Maven 路径    : /Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15
+Maven 版本    : 3.9.15
+Java 版本     : 17.0.18 (Microsoft OpenJDK)
+Java Home     : /Users/zhiweizhang/Library/Java/JavaVirtualMachines/ms-17.0.18/Contents/Home
+镜像源        : 阿里云公共仓库 (https://maven.aliyun.com/repository/public)
+配置文件      : /Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15/conf/settings.xml
+
+
+🚀 快速开始
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方式一：直接使用完整路径
+----------------------------------------
+/Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15/bin/mvn --version
+/Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15/bin/mvn clean install
+
+
+方式二：配置环境变量（推荐）
+----------------------------------------
+在 ~/.zshrc 中添加以下内容：
+
+# Maven 3.9.15 + JDK 17 配置
+export MAVEN_HOME=/Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15
+export JAVA_HOME=/Users/zhiweizhang/Library/Java/JavaVirtualMachines/ms-17.0.18/Contents/Home
+export PATH=$MAVEN_HOME/bin:$PATH
+
+然后执行：
+source ~/.zshrc
+
+
+方式三：运行配置脚本
+----------------------------------------
+cd /Users/zhiweizhang/Downloads/aicc/workspace/llm-learn
+./maven-env-config.sh
+
+
+📋 常用命令
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+查看版本信息
+    mvn --version
+
+清理项目
+    mvn clean
+
+编译项目
+    mvn compile
+
+打包项目
+    mvn package
+
+安装到本地仓库
+    mvn install
+
+跳过测试快速打包
+    mvn package -DskipTests
+
+查看有效配置
+    mvn help:effective-settings
+
+查看依赖树
+    mvn dependency:tree
+
+分析依赖冲突
+    mvn dependency:analyze
+
+
+🔧 配置详情
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+阿里云镜像配置：
+  • 镜像ID     : aliyunmaven
+  • 镜像URL    : https://maven.aliyun.com/repository/public
+  • 镜像范围   : * (所有仓库)
+  • 优势       : 国内访问速度快，支持公共仓库所有依赖
+
+JDK 17 配置：
+  • Profile ID : jdk-17
+  • 激活状态   : 自动激活（当检测到 JDK 17 时）
+  • 编译器版本: 17
+  • 源代码版本: 17
+  • 目标版本  : 17
+
+
+📂 相关文件
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+配置文件         : /Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15/conf/settings.xml
+备份文件         : /Users/zhiweizhang/Downloads/aicc/apache-maven-3.9.15/conf/settings.xml.backup.[时间戳]
+环境配置脚本     : /Users/zhiweizhang/Downloads/aicc/workspace/llm-learn/maven-env-config.sh
+配置验证脚本     : /Users/zhiweizhang/Downloads/aicc/workspace/llm-learn/maven-config-report.sh
+
+
+💡 提示
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• 阿里云镜像会显著提升依赖下载速度
+• JDK 17 配置会自动应用，无需手动指定
+• 如需回滚配置，可使用备份文件恢复
+• 可通过运行 maven-config-report.sh 查看完整配置信息
+
+
+⚠️ 注意事项
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• 确保 JAVA_HOME 指向正确的 JDK 17 路径
+• 首次运行会从阿里云镜像下载依赖，速度可能较慢
+• 如遇网络问题，可检查防火墙和代理设置
+• 建议定期清理本地仓库（mvn dependency:purge-local-repository）
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    如有问题，请查看 maven-config-report.sh                 ║
+╚════════════════════════════════════════════════════════════════════════════╝

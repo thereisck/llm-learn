@@ -1,0 +1,15 @@
+<h1>代码审查报告</h1>
+<p>审查人：{{ reviewer }}</p>
+<p>项目：{{ project_name }}</p>
+<p>日期：{{ review_date }}</p>
+
+<h2>审查内容</h2>
+<ul>
+    {% for issue in issues %}
+    <li>{{ issue.type }}：{{ issue.description }} (严重程度：{{ issue.severity }})</li>
+    {% endfor %}
+</ul>
+
+{% if high_risk_count > 0 %}
+<p style="color: red;">发现{{ high_risk_count }}个高风险问题</p>
+{% endif %}
