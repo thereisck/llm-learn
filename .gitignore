@@ -38,3 +38,9 @@ dist/
 
 ### VS Code ###
 .vscode/
+# Local secrets / machine-specific config
+.env
+.env.*
+!.env.example
+**/application-local.properties
+**/application-*.local.properties
