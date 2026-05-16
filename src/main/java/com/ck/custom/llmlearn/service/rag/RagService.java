@@ -8,7 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -32,8 +32,16 @@ public class RagService {
     @Resource
     private InMemoryVectorStore vectorStore;
 
+    @Resource
+    private Bm25Searcher bm25Searcher;
+
     @Value("${rag.top-k}")
     private int topK;
+
+    private static final int RRF_K = 60;
+    private static final String SEARCH_MODE_VECTOR = "vector";
+    private static final String SEARCH_MODE_BM25 = "bm25";
+    private static final String SEARCH_MODE_HYBRID = "hybrid";
 
     @PostConstruct
     public void init() {
@@ -43,10 +51,14 @@ public class RagService {
         for (int i = 0; i < chunks.size(); i++) {
             String chunkText = chunks.get(i);
             double[] embedding = embeddingClient.embed(chunkText);
-            vectorStore.addChunk(new Chunk(source, i, chunkText, embedding));
+            Chunk chunk = new Chunk(source, i, chunkText, embedding);
+            vectorStore.addChunk(chunk);
+            bm25Searcher.addChunk(chunk);
         }
-        System.out.println("已加载文档并构建向量索引，chunk数量: " + vectorStore.size());
-    }
+        System.out.println("已加载文档并构建检索索引，chunk数量: "
+                + vectorStore.size()
+                + ", bm25文档数量: "
+                + bm25Searcher.size());    }
 
     private String buildPrompt(String context, String question) {
         return """
@@ -68,12 +80,88 @@ public class RagService {
                 """.formatted(context, question);
     }
 
+    private List<SearchResult> vectorSearch(String question, int limit, double threshold) {
+        double[] queryEmbedding = embeddingClient.embed(question);
+        return vectorStore.search(queryEmbedding, limit, threshold);
+    }
+
+    private List<SearchResult> hybridSearch(String question, int limit) {
+        //如果 hybrid 每路都只取 top3，候选太少，融合没意义
+        int candidateSize = Math.max(limit * 5, 20);
+        //为什么 vector threshold 用 0.0？hybrid 阶段要尽量先多召回候选，然后交给 RRF 排序
+        //threshold = 0.6 可能向量检索阶段就把一些候选过滤掉了，RRF 根本没机会融合。
+        List<SearchResult> vectorResults = vectorSearch(question, candidateSize, 0.0);
+        List<SearchResult> bm25Results = bm25Searcher.search(question, candidateSize);
+        return reciprocalRankFusion(vectorResults, bm25Results, limit);
+    }
+
+    private List<SearchResult> reciprocalRankFusion(List<SearchResult> vectorResults,
+                                                    List<SearchResult> bm25Results,
+                                                    int limit) {
+        Map<String, SearchResult> candidates = new LinkedHashMap<>();
+        Map<String, Double> scores = new LinkedHashMap<>();
+        accumulateRrfScore(vectorResults, candidates, scores);
+        accumulateRrfScore(bm25Results, candidates, scores);
+        return scores.entrySet().stream()
+                .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+                .limit(limit)
+                .map(entry -> {
+                    SearchResult origin = candidates.get(entry.getKey());
+                    return new SearchResult(
+                            origin.getSource(),
+                            origin.getChunkIndex(),
+                            origin.getText(),
+                            entry.getValue());
+                }).collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    private void accumulateRrfScore(List<SearchResult> results,
+                                    Map<String, SearchResult> candidates,
+                                    Map<String, Double> scores) {
+        for (int i = 0; i < results.size(); i++) {
+            SearchResult result = results.get(i);
+            String id = resultId(result);
+            candidates.putIfAbsent(id, result);
+            //为什么是 i + 1？
+            //Java list 下标从 0 开始：i = 0 表示第一名
+            //i = 1 表示第二名 但 RRF 公式里的 rank 从 1 开始
+            double rrfScore = 1.0 / (RRF_K + i + 1);
+            scores.merge(id, rrfScore, Double::sum);
+        }
+    }
+
+    private String resultId(SearchResult result) {
+        return result.getSource() + "#" + result.getChunkIndex();
+    }
+
     public RagQueryResponse query(String question, double threshold) {
+        return query(question, threshold, "vector");
+    }
+
+    private String normalizeSearchMode(String searchMode) {
+        if (searchMode == null || searchMode.trim().isEmpty()) {
+            return "vector";
+        }
+        return searchMode.trim().toLowerCase(Locale.ROOT);
+    }
+
+    public RagQueryResponse query(String question, double threshold, String searchMode) {
         if(question == null || question.trim().isEmpty()) {
             throw new IllegalArgumentException("问题不能为空");
         }
-        double[] queryEmbedding = embeddingClient.embed(question);
-        List<SearchResult> results = vectorStore.search(queryEmbedding, topK, threshold);
+        String mode = normalizeSearchMode(searchMode);
+
+        List<SearchResult> results;
+        if (SEARCH_MODE_BM25.equals(mode)) {
+            results = bm25Searcher.search(question, topK);
+        } else if (SEARCH_MODE_VECTOR.equals(mode)) {
+            double[] queryEmbedding = embeddingClient.embed(question);
+            results = vectorStore.search(queryEmbedding, topK, threshold);
+        } else if (SEARCH_MODE_HYBRID.equals(mode)) {
+            results = hybridSearch(question, topK);
+        } else {
+            throw new IllegalArgumentException("不支持的检索模式: " + searchMode);
+        }
         if (results.isEmpty()) {
             return new RagQueryResponse(question,"资料中没有足够信息", results);
         }

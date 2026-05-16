@@ -22,6 +22,6 @@ public class RagController {
 
     @PostMapping("/query")
     public RagQueryResponse query(@RequestBody RagQueryRequest request) {
-        return ragService.query(request.getQuestion(), request.getThreshold());
+        return ragService.query(request.getQuestion(), request.getThreshold(), request.getSearchMode());
     }
 }

@@ -1,7 +1,6 @@
 HELP.md
 target/
 data/
-experiments/
 *.db
 *.sqlite
 *.sqlite3
