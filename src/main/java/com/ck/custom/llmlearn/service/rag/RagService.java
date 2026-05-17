@@ -2,6 +2,7 @@ package com.ck.custom.llmlearn.service.rag;
 
 import com.ck.custom.llmlearn.domain.rag.Chunk;
 import com.ck.custom.llmlearn.domain.rag.RagQueryResponse;
+import com.ck.custom.llmlearn.domain.rag.RerankResult;
 import com.ck.custom.llmlearn.domain.rag.SearchResult;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.Resource;
@@ -35,6 +36,17 @@ public class RagService {
     @Resource
     private Bm25Searcher bm25Searcher;
 
+    @Resource
+    private RerankClient rerankClient;
+
+    // Rerank前召回多少候选
+    @Value("${rag.rerank-top-k:20}")
+    private int rerankCandidateK;
+
+    // Rerank后保留多少
+    @Value("${rag.rerank-top-n:3}")
+    private int rerankTopN;
+
     @Value("${rag.top-k}")
     private int topK;
 
@@ -42,6 +54,7 @@ public class RagService {
     private static final String SEARCH_MODE_VECTOR = "vector";
     private static final String SEARCH_MODE_BM25 = "bm25";
     private static final String SEARCH_MODE_HYBRID = "hybrid";
+    private static final String SEARCH_MODE_HYBRID_RERANK = "hybrid_rerank";
 
     @PostConstruct
     public void init() {
@@ -159,6 +172,28 @@ public class RagService {
             results = vectorStore.search(queryEmbedding, topK, threshold);
         } else if (SEARCH_MODE_HYBRID.equals(mode)) {
             results = hybridSearch(question, topK);
+        } else if (SEARCH_MODE_HYBRID_RERANK.equals(mode)){
+            // 先Hybrid召回候选（多召回一些给Rerank做精排）
+            List<SearchResult> candidates = hybridSearch(question, rerankCandidateK);
+            if (candidates.isEmpty()) {
+                return new RagQueryResponse(question, "资料中没有足够信息", candidates);
+            }
+            //// 把候选文本提取出来，送入Rerank
+            List<String> candidateTexts = candidates.stream()
+                    .map(SearchResult::getText)
+                    .collect(Collectors.toList());
+            List<RerankResult> reranked = rerankClient.rerank(question, candidateTexts, rerankTopN);
+            //用Rerank结果替换原来的排序
+            results = reranked.stream()
+                    .map(rr -> {
+                        SearchResult origin = candidates.get(rr.getIndex());
+                        return new SearchResult(
+                                origin.getSource(),
+                                origin.getChunkIndex(),
+                                rr.getText(),
+                                rr.getRelevanceScore()
+                        );
+                    }).collect(Collectors.toCollection(ArrayList::new));
         } else {
             throw new IllegalArgumentException("不支持的检索模式: " + searchMode);
         }
