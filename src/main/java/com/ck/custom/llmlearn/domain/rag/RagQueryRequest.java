@@ -11,4 +11,5 @@ public class RagQueryRequest {
     private String question;
     private double threshold;
     private String searchMode;
+    private String compress;
 }

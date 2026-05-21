@@ -1,0 +1,626 @@
+[
+  {
+    "question_id": "Q1",
+    "question_desc": "语义相似问题（测向量路）",
+    "question": "怎么让知识库问答少答错一点",
+    "mode": "vector",
+    "status": "success",
+    "elapsed_ms": 582,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 0.7098,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 2,
+        "score": 0.6771,
+        "text_preview": "专有名词；向量检索擅长语义相似问题。两者结合通常比单纯向量检索更稳。 Rerank 是检索后的重排序步骤。第一阶段可以召回较多候选片段，比如 top20；第二阶段用 reranker 模型重新判断问题"
+      },
+      {
+        "chunk": 4,
+        "score": 0.6647,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      }
+    ]
+  },
+  {
+    "question_id": "Q1",
+    "question_desc": "语义相似问题（测向量路）",
+    "question": "怎么让知识库问答少答错一点",
+    "mode": "bm25",
+    "status": "success",
+    "elapsed_ms": 6,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 52.9938,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 9,
+        "score": 18.8911,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 4,
+        "score": 10.5158,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      }
+    ]
+  },
+  {
+    "question_id": "Q1",
+    "question_desc": "语义相似问题（测向量路）",
+    "question": "怎么让知识库问答少答错一点",
+    "mode": "hybrid",
+    "status": "success",
+    "elapsed_ms": 179,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 0.0328,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 4,
+        "score": 0.0317,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 2,
+        "score": 0.0308,
+        "text_preview": "专有名词；向量检索擅长语义相似问题。两者结合通常比单纯向量检索更稳。 Rerank 是检索后的重排序步骤。第一阶段可以召回较多候选片段，比如 top20；第二阶段用 reranker 模型重新判断问题"
+      }
+    ]
+  },
+  {
+    "question_id": "Q1",
+    "question_desc": "语义相似问题（测向量路）",
+    "question": "怎么让知识库问答少答错一点",
+    "mode": "hybrid_rerank",
+    "status": "success",
+    "elapsed_ms": 409,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 0.9623,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 9,
+        "score": 0.0684,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 8,
+        "score": 0.0149,
+        "text_preview": "二步用 BM25 关键词检索做粗筛，召回 Top-20 候选；第三步用 Hybrid Search（RRF 融合）合并两路结果，得到合并后的 Top-20；第四步用 Rerank（Cross-Enco"
+      }
+    ]
+  },
+  {
+    "question_id": "Q1",
+    "question_desc": "语义相似问题（测向量路）",
+    "question": "怎么让知识库问答少答错一点",
+    "mode": "multi_route",
+    "status": "success",
+    "elapsed_ms": 332,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 0.9629,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 9,
+        "score": 0.0678,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 0,
+        "score": 0.0132,
+        "text_preview": "# RAG 学习笔记 RAG，全称 Retrieval-Augmented Generation，中文通常叫检索增强生成。它的核心思想不是让大模型凭空回答，而是在回答前先从外部知识库中检索相关资料，再"
+      }
+    ]
+  },
+  {
+    "question_id": "Q2",
+    "question_desc": "精确术语问题（测BM25路）",
+    "question": "BM25的k1参数默认值是多少",
+    "mode": "vector",
+    "status": "success",
+    "elapsed_ms": 179,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 5,
+        "score": 0.7213,
+        "text_preview": "态码”。前者更适合向量检索，后者更适合关键词检索。如果系统只支持向量检索，编号、函数名、错误码、配置项、API 路径这类精确符号很容易被忽略。 在 Java 后端项目中，用户可能会搜索 OrderSe"
+      },
+      {
+        "chunk": 4,
+        "score": 0.7044,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 6,
+        "score": 0.6926,
+        "text_preview": "题类型适合不同检索策略。 ## Rerank 重排序详解 Rerank 是 RAG 检索链路中的精排步骤。向量检索和 BM25 都是粗筛：它们能快速从大量文档中召回大致相关的候选，但无法精确判断哪个候"
+      }
+    ]
+  },
+  {
+    "question_id": "Q2",
+    "question_desc": "精确术语问题（测BM25路）",
+    "question": "BM25的k1参数默认值是多少",
+    "mode": "bm25",
+    "status": "success",
+    "elapsed_ms": 7,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 9,
+        "score": 42.1042,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 10,
+        "score": 6.3847,
+        "text_preview": "25；混合意图问题比如\"Rerank 的 Cross-Encoder 和向量检索的 Embedding 有什么区别\"适合 Hybrid Search 加 Rerank。 在实际项目中，检索策略的选择不"
+      },
+      {
+        "chunk": 2,
+        "score": 5.1031,
+        "text_preview": "专有名词；向量检索擅长语义相似问题。两者结合通常比单纯向量检索更稳。 Rerank 是检索后的重排序步骤。第一阶段可以召回较多候选片段，比如 top20；第二阶段用 reranker 模型重新判断问题"
+      }
+    ]
+  },
+  {
+    "question_id": "Q2",
+    "question_desc": "精确术语问题（测BM25路）",
+    "question": "BM25的k1参数默认值是多少",
+    "mode": "hybrid",
+    "status": "success",
+    "elapsed_ms": 205,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 2,
+        "score": 0.0315,
+        "text_preview": "专有名词；向量检索擅长语义相似问题。两者结合通常比单纯向量检索更稳。 Rerank 是检索后的重排序步骤。第一阶段可以召回较多候选片段，比如 top20；第二阶段用 reranker 模型重新判断问题"
+      },
+      {
+        "chunk": 9,
+        "score": 0.0311,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 4,
+        "score": 0.0311,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      }
+    ]
+  },
+  {
+    "question_id": "Q2",
+    "question_desc": "精确术语问题（测BM25路）",
+    "question": "BM25的k1参数默认值是多少",
+    "mode": "hybrid_rerank",
+    "status": "success",
+    "elapsed_ms": 1231,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 9,
+        "score": 0.6808,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 4,
+        "score": 0.0779,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 3,
+        "score": 0.062,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      }
+    ]
+  },
+  {
+    "question_id": "Q2",
+    "question_desc": "精确术语问题（测BM25路）",
+    "question": "BM25的k1参数默认值是多少",
+    "mode": "multi_route",
+    "status": "success",
+    "elapsed_ms": 364,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 9,
+        "score": 0.6789,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 4,
+        "score": 0.0759,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 3,
+        "score": 0.0614,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      }
+    ]
+  },
+  {
+    "question_id": "Q3",
+    "question_desc": "混合意图问题（测Hybrid+Rerank）",
+    "question": "Rerank的Cross-Encoder和向量检索有什么区别",
+    "mode": "vector",
+    "status": "success",
+    "elapsed_ms": 187,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 6,
+        "score": 0.8185,
+        "text_preview": "题类型适合不同检索策略。 ## Rerank 重排序详解 Rerank 是 RAG 检索链路中的精排步骤。向量检索和 BM25 都是粗筛：它们能快速从大量文档中召回大致相关的候选，但无法精确判断哪个候"
+      },
+      {
+        "chunk": 3,
+        "score": 0.8055,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 5,
+        "score": 0.8004,
+        "text_preview": "态码”。前者更适合向量检索，后者更适合关键词检索。如果系统只支持向量检索，编号、函数名、错误码、配置项、API 路径这类精确符号很容易被忽略。 在 Java 后端项目中，用户可能会搜索 OrderSe"
+      }
+    ]
+  },
+  {
+    "question_id": "Q3",
+    "question_desc": "混合意图问题（测Hybrid+Rerank）",
+    "question": "Rerank的Cross-Encoder和向量检索有什么区别",
+    "mode": "bm25",
+    "status": "success",
+    "elapsed_ms": 11,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 9,
+        "score": 24.0659,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 10,
+        "score": 23.6453,
+        "text_preview": "25；混合意图问题比如\"Rerank 的 Cross-Encoder 和向量检索的 Embedding 有什么区别\"适合 Hybrid Search 加 Rerank。 在实际项目中，检索策略的选择不"
+      },
+      {
+        "chunk": 6,
+        "score": 7.7458,
+        "text_preview": "题类型适合不同检索策略。 ## Rerank 重排序详解 Rerank 是 RAG 检索链路中的精排步骤。向量检索和 BM25 都是粗筛：它们能快速从大量文档中召回大致相关的候选，但无法精确判断哪个候"
+      }
+    ]
+  },
+  {
+    "question_id": "Q3",
+    "question_desc": "混合意图问题（测Hybrid+Rerank）",
+    "question": "Rerank的Cross-Encoder和向量检索有什么区别",
+    "mode": "hybrid",
+    "status": "success",
+    "elapsed_ms": 193,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 6,
+        "score": 0.0323,
+        "text_preview": "题类型适合不同检索策略。 ## Rerank 重排序详解 Rerank 是 RAG 检索链路中的精排步骤。向量检索和 BM25 都是粗筛：它们能快速从大量文档中召回大致相关的候选，但无法精确判断哪个候"
+      },
+      {
+        "chunk": 10,
+        "score": 0.0318,
+        "text_preview": "25；混合意图问题比如\"Rerank 的 Cross-Encoder 和向量检索的 Embedding 有什么区别\"适合 Hybrid Search 加 Rerank。 在实际项目中，检索策略的选择不"
+      },
+      {
+        "chunk": 3,
+        "score": 0.0315,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      }
+    ]
+  },
+  {
+    "question_id": "Q3",
+    "question_desc": "混合意图问题（测Hybrid+Rerank）",
+    "question": "Rerank的Cross-Encoder和向量检索有什么区别",
+    "mode": "hybrid_rerank",
+    "status": "success",
+    "elapsed_ms": 439,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 6,
+        "score": 0.998,
+        "text_preview": "题类型适合不同检索策略。 ## Rerank 重排序详解 Rerank 是 RAG 检索链路中的精排步骤。向量检索和 BM25 都是粗筛：它们能快速从大量文档中召回大致相关的候选，但无法精确判断哪个候"
+      },
+      {
+        "chunk": 9,
+        "score": 0.9914,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      },
+      {
+        "chunk": 7,
+        "score": 0.9913,
+        "text_preview": "量搜索。但缺点是 Query 和 Document 在编码时互相不知道对方的存在，无法做深度语义交互。 Rerank 模型使用的是 Cross-Encoder（交叉编码器）。Query 和 Docum"
+      }
+    ]
+  },
+  {
+    "question_id": "Q3",
+    "question_desc": "混合意图问题（测Hybrid+Rerank）",
+    "question": "Rerank的Cross-Encoder和向量检索有什么区别",
+    "mode": "multi_route",
+    "status": "success",
+    "elapsed_ms": 339,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 6,
+        "score": 0.998,
+        "text_preview": "题类型适合不同检索策略。 ## Rerank 重排序详解 Rerank 是 RAG 检索链路中的精排步骤。向量检索和 BM25 都是粗筛：它们能快速从大量文档中召回大致相关的候选，但无法精确判断哪个候"
+      },
+      {
+        "chunk": 7,
+        "score": 0.9914,
+        "text_preview": "量搜索。但缺点是 Query 和 Document 在编码时互相不知道对方的存在，无法做深度语义交互。 Rerank 模型使用的是 Cross-Encoder（交叉编码器）。Query 和 Docum"
+      },
+      {
+        "chunk": 9,
+        "score": 0.9912,
+        "text_preview": "英文为主）、Jina-reranker-v2（多语言支持）。中文 RAG 场景首选 bge-reranker-v2-m3，它的 Cross-Encoder 基于 XLM-RoBERTa 架构，在中文语"
+      }
+    ]
+  },
+  {
+    "question_id": "Q4",
+    "question_desc": "精确代码标识符（测exactMatch路）",
+    "question": "spring.datasource.url配置",
+    "mode": "vector",
+    "status": "success",
+    "elapsed_ms": 177,
+    "recall_count": 1,
+    "sources": [
+      {
+        "chunk": 11,
+        "score": 0.5087,
+        "text_preview": "模型，中文表现好但维度较大）。选择 Embedding 模型时需要考虑维度大小（维度越大存储成本越高）、中文能力（中文场景必须选中文强模型）、输入长度（长文档需要支持更长输入的模型）。 Embeddi"
+      }
+    ]
+  },
+  {
+    "question_id": "Q4",
+    "question_desc": "精确代码标识符（测exactMatch路）",
+    "question": "spring.datasource.url配置",
+    "mode": "bm25",
+    "status": "success",
+    "elapsed_ms": 7,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 5,
+        "score": 5.2567,
+        "text_preview": "态码”。前者更适合向量检索，后者更适合关键词检索。如果系统只支持向量检索，编号、函数名、错误码、配置项、API 路径这类精确符号很容易被忽略。 在 Java 后端项目中，用户可能会搜索 OrderSe"
+      },
+      {
+        "chunk": 4,
+        "score": 3.0734,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 7,
+        "score": 1.4781,
+        "text_preview": "量搜索。但缺点是 Query 和 Document 在编码时互相不知道对方的存在，无法做深度语义交互。 Rerank 模型使用的是 Cross-Encoder（交叉编码器）。Query 和 Docum"
+      }
+    ]
+  },
+  {
+    "question_id": "Q4",
+    "question_desc": "精确代码标识符（测exactMatch路）",
+    "question": "spring.datasource.url配置",
+    "mode": "hybrid",
+    "status": "success",
+    "elapsed_ms": 184,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 4,
+        "score": 0.0323,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 5,
+        "score": 0.0313,
+        "text_preview": "态码”。前者更适合向量检索，后者更适合关键词检索。如果系统只支持向量检索，编号、函数名、错误码、配置项、API 路径这类精确符号很容易被忽略。 在 Java 后端项目中，用户可能会搜索 OrderSe"
+      },
+      {
+        "chunk": 3,
+        "score": 0.0304,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      }
+    ]
+  },
+  {
+    "question_id": "Q4",
+    "question_desc": "精确代码标识符（测exactMatch路）",
+    "question": "spring.datasource.url配置",
+    "mode": "hybrid_rerank",
+    "status": "success",
+    "elapsed_ms": 414,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 5,
+        "score": 0.2729,
+        "text_preview": "态码”。前者更适合向量检索，后者更适合关键词检索。如果系统只支持向量检索，编号、函数名、错误码、配置项、API 路径这类精确符号很容易被忽略。 在 Java 后端项目中，用户可能会搜索 OrderSe"
+      },
+      {
+        "chunk": 12,
+        "score": 0.0113,
+        "text_preview": "好，可以同时做关键词检索和向量检索，天然支持 Hybrid Search。 选择向量数据库的关键考量是：数据规模（百万级以下用 Chroma/Qdrant 就够了）、查询并发（高并发选 Milvus "
+      },
+      {
+        "chunk": 10,
+        "score": 0.002,
+        "text_preview": "25；混合意图问题比如\"Rerank 的 Cross-Encoder 和向量检索的 Embedding 有什么区别\"适合 Hybrid Search 加 Rerank。 在实际项目中，检索策略的选择不"
+      }
+    ]
+  },
+  {
+    "question_id": "Q4",
+    "question_desc": "精确代码标识符（测exactMatch路）",
+    "question": "spring.datasource.url配置",
+    "mode": "multi_route",
+    "status": "success",
+    "elapsed_ms": 369,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 5,
+        "score": 0.2729,
+        "text_preview": "态码”。前者更适合向量检索，后者更适合关键词检索。如果系统只支持向量检索，编号、函数名、错误码、配置项、API 路径这类精确符号很容易被忽略。 在 Java 后端项目中，用户可能会搜索 OrderSe"
+      },
+      {
+        "chunk": 2,
+        "score": 0.001,
+        "text_preview": "专有名词；向量检索擅长语义相似问题。两者结合通常比单纯向量检索更稳。 Rerank 是检索后的重排序步骤。第一阶段可以召回较多候选片段，比如 top20；第二阶段用 reranker 模型重新判断问题"
+      },
+      {
+        "chunk": 11,
+        "score": 0.0008,
+        "text_preview": "模型，中文表现好但维度较大）。选择 Embedding 模型时需要考虑维度大小（维度越大存储成本越高）、中文能力（中文场景必须选中文强模型）、输入长度（长文档需要支持更长输入的模型）。 Embeddi"
+      }
+    ]
+  },
+  {
+    "question_id": "Q5",
+    "question_desc": "知识库外无关问题（测误召回控制）",
+    "question": "如何在北京注册一家公司",
+    "mode": "vector",
+    "status": "success",
+    "elapsed_ms": 183,
+    "recall_count": 0,
+    "sources": []
+  },
+  {
+    "question_id": "Q5",
+    "question_desc": "知识库外无关问题（测误召回控制）",
+    "question": "如何在北京注册一家公司",
+    "mode": "bm25",
+    "status": "success",
+    "elapsed_ms": 5,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 4,
+        "score": 3.4071,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 3,
+        "score": 3.0157,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 1,
+        "score": 2.5023,
+        "text_preview": " Embedding 模型负责把文本转换成向量。向量可以表达文本语义，语义相似的文本在向量空间中距离更近。中文 RAG 场景中，常用的模型包括 bge-large-zh、bge-m3 等。需要注意，同"
+      }
+    ]
+  },
+  {
+    "question_id": "Q5",
+    "question_desc": "知识库外无关问题（测误召回控制）",
+    "question": "如何在北京注册一家公司",
+    "mode": "hybrid",
+    "status": "success",
+    "elapsed_ms": 177,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 4,
+        "score": 0.0325,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      },
+      {
+        "chunk": 0,
+        "score": 0.0318,
+        "text_preview": "# RAG 学习笔记 RAG，全称 Retrieval-Augmented Generation，中文通常叫检索增强生成。它的核心思想不是让大模型凭空回答，而是在回答前先从外部知识库中检索相关资料，再"
+      },
+      {
+        "chunk": 1,
+        "score": 0.0315,
+        "text_preview": " Embedding 模型负责把文本转换成向量。向量可以表达文本语义，语义相似的文本在向量空间中距离更近。中文 RAG 场景中，常用的模型包括 bge-large-zh、bge-m3 等。需要注意，同"
+      }
+    ]
+  },
+  {
+    "question_id": "Q5",
+    "question_desc": "知识库外无关问题（测误召回控制）",
+    "question": "如何在北京注册一家公司",
+    "mode": "hybrid_rerank",
+    "status": "success",
+    "elapsed_ms": 404,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 0.0004,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 2,
+        "score": 0.0002,
+        "text_preview": "专有名词；向量检索擅长语义相似问题。两者结合通常比单纯向量检索更稳。 Rerank 是检索后的重排序步骤。第一阶段可以召回较多候选片段，比如 top20；第二阶段用 reranker 模型重新判断问题"
+      },
+      {
+        "chunk": 8,
+        "score": 0.0001,
+        "text_preview": "二步用 BM25 关键词检索做粗筛，召回 Top-20 候选；第三步用 Hybrid Search（RRF 融合）合并两路结果，得到合并后的 Top-20；第四步用 Rerank（Cross-Enco"
+      }
+    ]
+  },
+  {
+    "question_id": "Q5",
+    "question_desc": "知识库外无关问题（测误召回控制）",
+    "question": "如何在北京注册一家公司",
+    "mode": "multi_route",
+    "status": "success",
+    "elapsed_ms": 332,
+    "recall_count": 3,
+    "sources": [
+      {
+        "chunk": 3,
+        "score": 0.0004,
+        "text_preview": "、Qwen3-Embedding、SKU-20260516、OrderService、NullPointerException 这类专有名词、英文缩写、代码标识符或者业务编号时，关键词检索通常比纯向量"
+      },
+      {
+        "chunk": 0,
+        "score": 0.0,
+        "text_preview": "# RAG 学习笔记 RAG，全称 Retrieval-Augmented Generation，中文通常叫检索增强生成。它的核心思想不是让大模型凭空回答，而是在回答前先从外部知识库中检索相关资料，再"
+      },
+      {
+        "chunk": 4,
+        "score": 0.0,
+        "text_preview": "，全称 Reciprocal Rank Fusion，中文可以叫互倒数排名融合。它的公式是 score = 1 / (k + rank)，常用 k = 60。如果某个 chunk 在向量检索中排名第 "
+      }
+    ]
+  }
+]

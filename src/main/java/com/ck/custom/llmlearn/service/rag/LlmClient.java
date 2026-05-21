@@ -55,6 +55,31 @@ public class LlmClient {
             throw new RuntimeException("调用LLM Chat接口失败", e);
         }
     }
+
+    public String chat(String systemPrompt, String userPrompt) {
+        ensureApiKey();
+        try {
+            String url = baseUrl + "/chat/completions";
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer " + apiKey);
+            headers.set("Content-Type", "application/json");
+            Map<String, Object> requestBody = Map.of(
+                    "model", chatModel,
+                    "messages", List.of(
+                            Map.of("role", "system", "content", systemPrompt),
+                            Map.of("role", "user", "content", userPrompt)
+                    ),
+                    "temperature", 0.2
+            );
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(requestBody, headers);
+            ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
+            JsonNode root = objectMapper.readTree(response.getBody());
+            return root.get("choices").get(0).get("message").get("content").asText();
+        }catch (Exception e) {
+            throw new RuntimeException("调用LLM Chat接口失败", e);
+        }
+    }
+
     private void ensureApiKey() {
         if (apiKey == null || apiKey.isBlank()) {
             throw new IllegalStateException("缺少 SILICONFLOW_API_KEY 环境变量");

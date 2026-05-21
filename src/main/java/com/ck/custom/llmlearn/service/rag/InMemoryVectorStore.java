@@ -2,12 +2,9 @@ package com.ck.custom.llmlearn.service.rag;
 
 import com.ck.custom.llmlearn.domain.rag.Chunk;
 import com.ck.custom.llmlearn.domain.rag.SearchResult;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author changkong
@@ -17,6 +14,7 @@ import java.util.List;
 public class InMemoryVectorStore {
 
     private final List<Chunk> chunks = new ArrayList<>();
+
 
     public void addChunk(Chunk chunk) {
         chunks.add(chunk);
@@ -57,5 +55,9 @@ public class InMemoryVectorStore {
             return 0.0;
         }
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+    }
+
+    public List<Chunk> getAllChunks() {
+        return new ArrayList<>(chunks);
     }
 }
