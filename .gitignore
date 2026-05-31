@@ -1,6 +1,7 @@
 HELP.md
 target/
 data/
+*.env
 *.db
 *.sqlite
 *.sqlite3

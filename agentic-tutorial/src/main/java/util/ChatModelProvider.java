@@ -12,10 +12,11 @@ public class ChatModelProvider {
 
     // ====== 中转站配置 ======
     private static final String BYAI_BASE_URL = "https://model.indata.cc/v1";
+    private static final String BYAI_MODEL = "glm-5";  // 中转站可用模型
 
     // ====== 硅基流动配置 ======
     private static final String SILICONFLOW_BASE_URL = "https://api.siliconflow.cn/v1";
-    private static final String SILICONFLOW_MODEL = "Pro/zai-org/GLM-5.1";
+    private static final String SILICONFLOW_MODEL = "Qwen/Qwen3-8B";  // 8B参数，更快更稳定
 
     public static ChatModel createChatModel() {
         return createChatModel(true);
@@ -32,8 +33,13 @@ public class ChatModelProvider {
     public static ChatModel createChatModel(String provider, boolean enableLogging) {
         switch (provider.toUpperCase()) {
             case "SILICONFLOW":
+                String siliconflowKey = System.getenv("SILICONFLOW_API_KEY");
+                if (siliconflowKey == null || siliconflowKey.isEmpty()) {
+                    siliconflowKey = "sk-kemgxaacaqdehipgoywavavmpaiazkocfjyixcvsnslmeycv"; // fallback，IDEA环境变量没配时使用
+                }
                 return OpenAiChatModel.builder()
                         .baseUrl(SILICONFLOW_BASE_URL)
+                        .apiKey(siliconflowKey)
                         .modelName(SILICONFLOW_MODEL)
                         .logRequests(enableLogging)
                         .logResponses(enableLogging)
@@ -48,10 +54,14 @@ public class ChatModelProvider {
                         .build();
             default:
                 // 默认走中转站，用 BYAI_API_KEY
+                String byaiKey = System.getenv("BYAI_API_KEY");
+                if (byaiKey == null || byaiKey.isEmpty()) {
+                    byaiKey = "sk-CDeMw9RlCLg9LUSVCczw6qBrg4oJRilTI85CwRcpYwHQYth3"; // fallback
+                }
                 return OpenAiChatModel.builder()
                         .baseUrl(BYAI_BASE_URL)
-                        .apiKey(System.getenv("BYAI_API_KEY"))
-                        .modelName(GPT_4_O_MINI)
+                        .apiKey(byaiKey)
+                        .modelName(BYAI_MODEL)
                         .logRequests(enableLogging)
                         .logResponses(enableLogging)
                         .build();

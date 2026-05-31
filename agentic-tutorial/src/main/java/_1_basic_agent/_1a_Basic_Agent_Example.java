@@ -26,7 +26,7 @@ public class _1a_Basic_Agent_Example {
     }
 
     // 1. 定义驱动 Agent 的模型
-    private static final ChatModel CHAT_MODEL = ChatModelProvider.createChatModel("SILICONFLOW");
+    private static final ChatModel CHAT_MODEL = ChatModelProvider.createChatModel("OPENAI");
 
     public static void main(String[] args) throws IOException {
 
