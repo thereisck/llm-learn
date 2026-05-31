@@ -27,7 +27,7 @@ public class _2a_Sequential_Agent_Example {
      */
 
     // 1. 定义驱动 Agent 的模型
-    private static final ChatModel CHAT_MODEL = ChatModelProvider.createChatModel();
+    private static final ChatModel CHAT_MODEL = ChatModelProvider.createChatModel("OPENAI");
 
     public static void main(String[] args) throws IOException {
 

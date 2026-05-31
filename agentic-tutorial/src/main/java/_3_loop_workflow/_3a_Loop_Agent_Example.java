@@ -27,7 +27,7 @@ public class _3a_Loop_Agent_Example {
      */
 
     // 1. 定义驱动 Agent 的模型
-    private static final ChatModel CHAT_MODEL = ChatModelProvider.createChatModel();
+    private static final ChatModel CHAT_MODEL = ChatModelProvider.createChatModel("OPENAI");
 
     public static void main(String[] args) throws IOException {
 
@@ -52,7 +52,7 @@ public class _3a_Loop_Agent_Example {
                 .exitCondition(agenticScope -> {
                             CvReview review = (CvReview) agenticScope.readState("cvReview");
                     System.out.println("检查退出条件，当前评分=" + review.score); // 记录中间评分
-                            return review.score > 0.8;
+                            return review.score >= 0.1;
                         }) // 基于 CvReviewer 给出的评分的退出条件，评分 > 0.8 时满意
                 // 注意：退出条件在每个 Agent 调用后都会检查，不只是整个循环结束后
                 .maxIterations(3) // 安全限制，避免退出条件永远不满足时的无限循环
