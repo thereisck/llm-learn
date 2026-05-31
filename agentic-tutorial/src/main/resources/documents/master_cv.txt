@@ -1,18 +1,23 @@
-John Doe – Backend Engineer
-Email: john.doe.dev@protonmail.com | Antwerp, Belgium |
-SUMMARY
-Backend engineer with 4+ years’ experience building applications in Java (Spring Boot) and PostgreSQL. Focused on pragmatic delivery and collaboration in small teams.
-EXPERIENCE
-Software Engineer – BrightPay Systems (2021–Present)
-- Built backend services in Java and PostgreSQL.
-- Developed internal tools to support operations.
-- Worked with team members to maintain existing systems.
-Software Developer – CodeWave Solutions (2019–2021)
-- Java/Spring Boot development for customer projects.
-- Contributed to small web features and automation scripts.
-- Built hobby apps to explore new technologies and worked with Docker.
-EDUCATION
-- Java Bootcamp, BeCode (2019–2020)
-- B.Sc. Mechanical Engineering, KU Leuven (2016)
-SKILLS
-Java, Spring Boot, PostgreSQL, Docker, SQL, software delivery, teamwork, English (C1).
+张伟 – 后端工程师
+邮箱: john.doe.dev@protonmail.com | 安特卫普, 比利时 |
+
+简介
+后端工程师，4年以上 Java（Spring Boot）和 PostgreSQL 应用开发经验。专注于务实交付和小团队协作。
+
+工作经历
+软件工程师 – BrightPay Systems（2021至今）
+- 用 Java 和 PostgreSQL 构建后端服务。
+- 开发内部工具支持运营。
+- 与团队成员一起维护现有系统。
+
+软件开发 – CodeWave Solutions（2019-2021）
+- 为客户项目进行 Java/Spring Boot 开发。
+- 参与小型 Web 功能和自动化脚本开发。
+- 构建业余应用探索新技术，使用 Docker。
+
+教育背景
+- Java训练营, BeCode（2019-2020）
+- 机械工程学士, KU Leuven（2016）
+
+技能
+Java, Spring Boot, PostgreSQL, Docker, SQL, 软件交付, 团队协作, 英语（C1）。

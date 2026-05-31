@@ -1,14 +1,13 @@
-John Doe is based in Antwerp, Belgium (Rue des Carmes 12, 2000 Antwerp) and can be reached at john.doe.dev@protonmail.com
- or +32 495 67 89 23. He’s active on LinkedIn
- and GitHub.
-- Switched from mechanical engineering to software in 2020 after completing an evening Java bootcamp (2019–2020).
-- 4 years of software development experience; last 2 years specializing in backend Java (Spring Boot, PostgreSQL, Kafka basics).
-- Built an internal pricing tool that reduced quote turnaround time by ~35%.
-- Led a 3-person task force migrating legacy SOAP services to REST.
-- Comfortable with Docker and CI pipelines (GitHub Actions).
-- Has some React experience for internal admin panels (not a core strength).
-- Values clean, maintainable code and enjoys mentoring interns.
-- Prefers building products over agency work; dislikes endless meetings and focuses on shipping value.
-- Languages: Dutch (native), English (C1), French (B1).
-- Education: BSc in Mechanical Engineering (2016), Java bootcamp (2019–2020).
-- Side projects include a small budgeting app (Spring + Vue) and a home IoT setup (ESP32 + MQTT).
+张伟居住在比利时安特卫普（Carmes街12号, 2000 安特卫普），联系方式 john.doe.dev@protonmail.com 或 +32 495 67 89 23。他在 LinkedIn 和 GitHub 上活跃。
+
+- 2020年从机械工程转行到软件开发，之前在2019-2020年完成了晚间Java训练营。
+- 4年软件开发经验；最近2年专注后端Java开发（Spring Boot, PostgreSQL, Kafka基础）。
+- 构建了内部定价工具，将报价周转时间减少了约35%。
+- 带领3人小组将遗留 SOAP 服务迁移到 REST。
+- 熟悉 Docker 和 CI 流水线（GitHub Actions）。
+- 有一些 React 经验（内部管理面板，非核心强项）。
+- 重视整洁、可维护的代码，喜欢指导实习生。
+- 更喜欢构建产品而非外包工作；讨厌无尽的会议，专注于交付价值。
+- 语言：荷兰语（母语），英语（C1），法语（B1）。
+- 教育背景：机械工程学士（2016），Java训练营（2019-2020）。
+- 个人项目包括小型记账应用（Spring + Vue）和家庭IoT搭建（ESP32 + MQTT）。

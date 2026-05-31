@@ -1,11 +1,15 @@
-John Doe – Backend Engineer
-Antwerp, Belgium | john.doe.dev@protonmail.com | +32 495 67 89 23 | LinkedIn | GitHub
-SUMMARY
-Backend engineer (Java, Spring Boot, PostgreSQL) with 4+ yrs’ experience in scalable systems, API modernization, and automation. Fluent Dutch, English C1.
-EXPERIENCE
-BrightPay Systems (2021–Present): Built backend services; pricing tool (-35% quote time); SOAP→REST migration; mentoring interns.
-CodeWave Solutions (2019–2021): Backend dev; CI/CD (GitHub Actions); Docker, Kafka (PoC); small React admin UI; side projects (Spring+Vue budgeting app, IoT automation).
-EDUCATION
-Java Bootcamp, BeCode (2019–2020); B.Sc. Mechanical Engineering, KU Leuven (2016)
-SKILLS
-Java, Spring Boot, PostgreSQL, Docker, Kafka (basic), CI/CD, REST design, clean code, mentoring; Dutch (native), English (C1), French (B1).
+张伟 – 后端工程师
+安特卫普, 比利时 | john.doe.dev@protonmail.com | +32 495 67 89 23 | LinkedIn | GitHub
+
+简介
+后端工程师（Java, Spring Boot, PostgreSQL），4年以上可扩展系统、API现代化和自动化经验。流利荷兰语，英语C1。
+
+工作经历
+BrightPay Systems（2021至今）：构建后端服务；定价工具（报价时间减少35%）；SOAP→REST迁移；指导实习生。
+CodeWave Solutions（2019-2021）：后端开发；CI/CD（GitHub Actions）；Docker, Kafka（PoC）；小型React管理界面；个人项目（Spring+Vue记账应用, IoT自动化）。
+
+教育背景
+Java训练营, BeCode（2019-2020）；机械工程学士, KU Leuven（2016）
+
+技能
+Java, Spring Boot, PostgreSQL, Docker, Kafka（基础）, CI/CD, REST设计,整洁代码, 指导; 荷兰语（母语）, 英语（C1）, 法语（B1）。

@@ -1,10 +1,11 @@
-Phone Interview – John Doe (Backend Engineer) – 2025-09-05
-Interviewer: Sarah Jacobs (HR)
-Work Authorization: Belgian citizen; EU work permit.
-Location: Antwerp, prefers 3 remote days/week.
-Availability: 3 months' notice; no relocation needed.
-Salary: €62k current; expects ~€75k; wants training budget.
-Experience: ~4 yrs backend (Java, Spring Boot, PostgreSQL); led pricing tool project; Kafka PoC use; mentoring interest.
-Career: 4 yrs current role, 1.5 yrs prior; no major gaps.
-Soft Skills: Dutch native, English C1; clear communicator; pragmatic, product focus.
-Notes: Salary slightly above range; availability later than desired; limited distributed systems experience.
+电话面试 – 张伟（后端工程师）– 2025-09-05
+面试官: Sarah Jacobs（HR）
+
+工作许可: 比利时公民；欧盟工作许可。
+居住地: 安特卫普，期望每周3天远程。
+入职时间: 3个月通知期；无需搬迁。
+薪资: 当前€62k；期望约€75k；要求培训预算。
+经验: 约4年后端开发（Java, Spring Boot, PostgreSQL）；主导定价工具项目；Kafka PoC 使用；有指导意愿。
+职业历程: 当前岗位4年，此前1.5年；无重大空窗期。
+软技能: 荷兰语母语, 英语C1；沟通清晰；务实，产品导向。
+备注: 薪资略高于范围；入职时间晚于期望；分布式系统经验有限。

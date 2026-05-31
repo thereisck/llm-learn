@@ -1,5 +1,5 @@
-Candidate Contact Card:
-John Doe
-Rue des Carmes 12, 2000 Antwerp, Belgium
+候选人联系信息：
+张伟
+Carmes街12号, 2000 安特卫普, 比利时
 john.doe.dev@protonmail.com
 +32 495 67 89 23

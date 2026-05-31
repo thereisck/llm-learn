@@ -1,15 +1,17 @@
-Job Description ID: 123A
-Backend Engineer (FinTech, Antwerp)
+岗位描述编号: 123A
+后端工程师（金融科技，安特卫普）
 -----------------------------------
-We are looking for a **Backend Engineer** to help us build and evolve our payment and reconciliation services. You will work primarily with **Java (Spring Boot)**, and collaborate closely with the product and operations teams to ensure reliable, scalable financial transactions.
-**Responsibilities:**
-*   Design, implement, and maintain backend services that handle payments and reconciliation at scale.
-*   Work with **PostgreSQL**, **Kafka**, **Docker**, and **Kubernetes** in a cloud-native environment.
-*   Focus on building reliable and idempotent systems with strong observability.
-*   Support the migration of legacy services to modern REST APIs.
-**Requirements:**
-*   Professional experience in backend development with Java and Spring Boot.
-*   Strong understanding of relational databases and event-driven architectures.
-*   Familiarity with containerization and deployment pipelines.
-*   Experience with financial or pricing systems is a plus.
-*   Fluency in English is required; Dutch is an advantage.
+我们正在寻找一名**后端工程师**，帮助构建和完善支付与对账服务。你将主要使用 **Java（Spring Boot）**，与产品和运营团队紧密协作，确保可靠、可扩展的金融交易处理。
+
+**职责：**
+* 设计、实现和维护大规模支付和对账后端服务。
+* 在云原生环境中使用 **PostgreSQL**、**Kafka**、**Docker** 和 **Kubernetes**。
+* 专注于构建可靠、幂等的系统，具备强大的可观测性。
+* 支持遗留服务迁移到现代 REST API。
+
+**要求：**
+* 有 Java 和 Spring Boot 后端开发专业经验。
+* 对关系数据库和事件驱动架构有深入理解。
+* 熟悉容器化和部署流水线。
+* 有金融或定价系统经验者优先。
+* 英语流利；荷兰语是加分项。

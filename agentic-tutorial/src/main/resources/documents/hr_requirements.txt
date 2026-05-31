@@ -1,11 +1,11 @@
-## HR Requirements
-- Name and contact details must be clear and complete.
-- Must be authorized to work in Belgium/EU.
-- Availability to start within 1–2 months preferred.
-- Salary expectations within €55–70k/year range.
-- Stable work history; no gaps >6 months.
-- At least 1 year tenure per role and relevant tech industry experience.
-- Growth in responsibilities over career is desirable.
-- Fluent Dutch (native) and English (C1) required.
-- Clear, professional writing; no major grammar issues.
-- Evidence of teamwork, mentoring, and product focus preferred.
+## HR 要求
+- 姓名和联系方式必须清晰完整。
+- 必须有比利时/欧盟工作许可。
+- 期望1-2个月内可入职。
+- 薪资期望在€55-70k/年范围内。
+- 工作经历稳定；无超过6个月的空窗期。
+- 每个岗位至少1年任期且有相关技术行业经验。
+- 职业发展中职责递增者优先。
+- 需流利荷兰语（母语）和英语（C1）。
+- 书写清晰专业；无重大语法问题。
+- 有团队合作、指导和产品导向经验者优先。

@@ -1,16 +1,18 @@
-Job Description ID: 123B
-Full-Stack Developer (SaaS Analytics, Remote EU)
+岗位描述编号: 123B
+全栈开发工程师（SaaS分析平台，远程欧盟）
 ------------------------------------------------
-We are seeking a **Full-Stack Developer** to join our SaaS analytics platform team. This role involves working across the backend and frontend, with a focus on delivering high-quality user experiences in a data-heavy product.
-**Responsibilities:**
-*   Develop and maintain backend services in **Java** or **Node.js**, with data stored in **PostgreSQL** and **Redis**.
-*   Build and enhance dashboards and admin tools using **React**.
-*   Collaborate with product managers and designers to launch features end-to-end.
-*   Contribute to scaling asynchronous job systems for data processing.
-**Requirements:**
-*   Solid experience in backend development (Java or Node.js).
-*   Hands-on experience with modern JavaScript frameworks, preferably React.
-*   Strong understanding of databases and caching solutions.
-*   Ability to work independently in a remote team and take features from concept to production.
-*   Previous experience delivering SaaS products is a plus.
-*   Proficiency in English is required.
+我们正在寻找一名**全栈开发工程师**，加入我们的 SaaS 分析平台团队。该角色涉及前后端开发，重点是在数据密集型产品中提供高质量用户体验。
+
+**职责：**
+* 用 **Java** 或 **Node.js** 开发和维护后端服务，数据存储使用 **PostgreSQL** 和 **Redis**。
+* 用 **React** 构建和优化仪表盘和管理工具。
+* 与产品经理和设计师协作，端到端交付功能。
+* 参与异步任务系统的扩展，用于数据处理。
+
+**要求：**
+* 有扎实的后端开发经验（Java 或 Node.js）。
+* 有现代 JavaScript 框架实战经验，preferably React。
+* 对数据库和缓存方案有深入理解。
+* 能在远程团队中独立工作，从概念到上线全流程负责。
+* 有 SaaS 产品交付经验者优先。
+* 英语流利。
