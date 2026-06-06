@@ -59,7 +59,7 @@ public class CodeReviewExample {
     public static ChatModel getModel() {
         String byaiKey = System.getenv("BYAI_API_KEY");
         if (byaiKey == null || byaiKey.isEmpty()) {
-            byaiKey = "sk-CDeMw9RlCLg9LUSVCczw6qBrg4oJRilTI85CwRcpYwHQYth3"; // fallback
+            byaiKey = ""; // fallback
         }
         return OpenAiChatModel.builder()
                 .baseUrl("https://model.indata.cc/v1")

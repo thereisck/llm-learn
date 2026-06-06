@@ -56,7 +56,7 @@ public class ChatModelProvider {
                 // 默认走中转站，用 BYAI_API_KEY
                 String byaiKey = System.getenv("BYAI_API_KEY");
                 if (byaiKey == null || byaiKey.isEmpty()) {
-                    byaiKey = "sk-CDeMw9RlCLg9LUSVCczw6qBrg4oJRilTI85CwRcpYwHQYth3"; // fallback
+                    byaiKey = ""; // fallback
                 }
                 return OpenAiChatModel.builder()
                         .baseUrl(BYAI_BASE_URL)
