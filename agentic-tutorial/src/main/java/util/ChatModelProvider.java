@@ -35,7 +35,7 @@ public class ChatModelProvider {
             case "SILICONFLOW":
                 String siliconflowKey = System.getenv("SILICONFLOW_API_KEY");
                 if (siliconflowKey == null || siliconflowKey.isEmpty()) {
-                    siliconflowKey = "sk-kemgxaacaqdehipgoywavavmpaiazkocfjyixcvsnslmeycv"; // fallback，IDEA环境变量没配时使用
+                    siliconflowKey = ""; // fallback，IDEA环境变量没配时使用
                 }
                 return OpenAiChatModel.builder()
                         .baseUrl(SILICONFLOW_BASE_URL)

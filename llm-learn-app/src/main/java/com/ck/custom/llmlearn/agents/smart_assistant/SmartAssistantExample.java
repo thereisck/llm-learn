@@ -98,7 +98,7 @@ public class SmartAssistantExample {
     private static ChatModel createChatModel() {
         String apiKey = System.getenv("SILICONFLOW_API_KEY");
         if (apiKey == null || apiKey.isEmpty()) {
-            apiKey = "sk-kemgxaacaqdehipgoywavavmpaiazkocfjyixcvsnslmeycv"; // fallback
+            apiKey = ""; // fallback
         }
 
         return OpenAiChatModel.builder()
