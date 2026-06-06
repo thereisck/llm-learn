@@ -1,47 +1,52 @@
-HELP.md
-target/
-data/
-*.env
-*.db
-*.sqlite
-*.sqlite3
-application-local.properties
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-node_modules/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
 dist/
+build/
+.eggs/
 
-### VS Code ###
+# Java
+target/
+*.class
+*.jar
+*.war
+*.log
+
+# IDE
+.idea/
+*.iml
 .vscode/
-# Local secrets / machine-specific config
+.settings/
+
+# 环境配置（含敏感信息）
 .env
-.env.*
-!.env.example
-**/application-local.properties
-**/application-*.local.properties
+application-local.properties
+setenv.sh
+
+# 数据库
+*.db
+data/llm_learn.db
+
+# Node.js
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# 实验数据（体积大）
+experiments/*.json
+experiments/*.jsonl
+
+# 日志
+*.log
+
+# 记忆目录（本地数据）
+memory_dir/

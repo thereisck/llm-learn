@@ -15,7 +15,7 @@ from openai import OpenAI
 
 # ---- 硅基流动 LLM 配置 ----
 
-SILICONFLOW_API_KEY = os.getenv("SILICONFLOW_API_KEY", "sk-kemgxaacaqdehipgoywavavmpaiazkocfjyixcvsnslmeycv")
+SILICONFLOW_API_KEY = os.getenv("SILICONFLOW_API_KEY", "os.environ.get("SILICONFLOW_API_KEY", "")")
 SILICONFLOW_BASE_URL = os.getenv("SILICONFLOW_BASE_URL", "https://api.siliconflow.cn/v1")
 
 client = OpenAI(

@@ -7,7 +7,7 @@ import json
 from pydoc import cli
 from openai import OpenAI
 
-SILICONFLOW_API_KEY = "sk-kemgxaacaqdehipgoywavavmpaiazkocfjyixcvsnslmeycv"
+SILICONFLOW_API_KEY = "os.environ.get("SILICONFLOW_API_KEY", "")"
 SILICONFLOW_BASE_URL = "https://api.siliconflow.cn/v1"
 
 client = OpenAI(

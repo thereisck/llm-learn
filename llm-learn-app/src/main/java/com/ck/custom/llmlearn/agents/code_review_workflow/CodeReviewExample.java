@@ -65,6 +65,7 @@ public class CodeReviewExample {
                 .baseUrl("https://model.indata.cc/v1")
                 .apiKey(byaiKey)
                 .modelName("glm-5")
+                .timeout(java.time.Duration.ofSeconds(120))  // 中转站响应慢，加大超时
                 .logRequests(true)
                 .logResponses(true)
                 .build();
