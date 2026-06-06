@@ -58,7 +58,7 @@ class MCPClient:
         await self.exit_stack.aclose()
         
 # --- Agent主循环 ---
-SILICONFLOW_API_KEY = "os.environ.get("SILICONFLOW_API_KEY", "")"
+SILICONFLOW_API_KEY = os.environ.get("SILICONFLOW_API_KEY", "")
 SILICONFLOW_BASE_URL = "https://api.siliconflow.cn/v1"
 MODEL = "Pro/zai-org/GLM-5.1"
 
