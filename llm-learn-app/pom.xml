@@ -11,6 +11,21 @@
 	<name>llm-learn-app</name>
 	<description>Main llm-learn application</description>
 
+	<repositories>
+		<!-- Spring AI packages may not be on aliyun mirror yet -->
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
+		<repository>
+			<id>maven-central</id>
+			<name>Maven Central</name>
+			<url>https://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>dev.langchain4j</groupId>
@@ -28,6 +43,18 @@
 			<groupId>dev.langchain4j</groupId>
 			<artifactId>langchain4j-agentic</artifactId>
 			<version>1.15.0-beta25</version>
+		</dependency>
+
+		<!-- LangGraph4j for stateful Agent workflows -->
+		<dependency>
+			<groupId>org.bsc.langgraph4j</groupId>
+			<artifactId>langgraph4j-core</artifactId>
+			<version>1.8.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bsc.langgraph4j</groupId>
+			<artifactId>langgraph4j-langchain4j</artifactId>
+			<version>1.8.17</version>
 		</dependency>
 
 		<dependency>
@@ -113,6 +140,13 @@
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.0.33</version>
+		</dependency>
+
+		<!-- Spring AI for Structured Output comparison (Week7 Day2) -->
+		<dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-starter-model-openai</artifactId>
+			<version>2.0.0</version>
 		</dependency>
 
 		<dependency>

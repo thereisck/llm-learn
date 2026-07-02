@@ -86,47 +86,51 @@ class LLMClient:
             # echo模式：不走网络，直接返回模拟响应 — 开发调试用
             return self._echo_fallback_raw(messages)
         
-        try:
-            import urllib.request
-            import urllib.error
+        # 重试机制 — 长文本生成容易超时，最多重试2次
+        max_retries = 2
+        for attempt in range(max_retries + 1):
+            try:
+                import urllib.request
+                import urllib.error
+                import time
+                
+                url = f"{self.base_url}/chat/completions"
+                headers = {
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {self.api_key}",
+                }
+                
+                body_dict = {
+                    "model": self.model,
+                    "messages": messages,
+                    "max_tokens": max_tokens,
+                    "temperature": 0.7,
+                }
+                
+                if tools:
+                    body_dict["tools"] = tools
+                
+                body = json.dumps(body_dict)
+                
+                # 超时根据max_tokens动态调整 — 长文本需要更长等待
+                timeout = max(120, max_tokens * 0.1)
+                req = urllib.request.Request(url, data=body.encode("utf-8"), headers=headers)
+                with urllib.request.urlopen(req, timeout=timeout) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    return data
             
-            # 延迟导入urllib — 避免模块级依赖，只在真正调用时才加载
+            except urllib.error.HTTPError as e:
+                error_body = e.read().decode("utf-8")
+                print(f"[LLM] HTTP错误 {e.code}: {error_body[:200]}")
+                return {"error": f"API返回 {e.code}", "choices": [{"message": {"content": f"[LLM错误] API返回 {e.code}"}}]}
             
-            url = f"{self.base_url}/chat/completions"
-            headers = {
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.api_key}",
-            }
-            
-            # 构造请求体 — 固定temperature=0.7兼顾创意与稳定性
-            body_dict = {
-                "model": self.model,
-                "messages": messages,
-                "max_tokens": max_tokens,
-                "temperature": 0.7,
-            }
-            
-            # 支持function calling（tools参数） — 仅在有tools时才发送，避免无tool时API报错
-            if tools:
-                body_dict["tools"] = tools
-            
-            body = json.dumps(body_dict)
-            
-            req = urllib.request.Request(url, data=body.encode("utf-8"), headers=headers)
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                return data
-        
-        except urllib.error.HTTPError as e:
-            # HTTP错误：返回结构化错误dict而非抛异常 — 保证调用方总能拿到choices字段
-            error_body = e.read().decode("utf-8")
-            print(f"[LLM] HTTP错误 {e.code}: {error_body[:200]}")
-            return {"error": f"API返回 {e.code}", "choices": [{"message": {"content": f"[LLM错误] API返回 {e.code}"}}]}
-        
-        except Exception as e:
-            # 通用异常兜底 — 网络超时、JSON解析失败等，同样返回结构化dict
-            print(f"[LLM] 调用失败: {e}")
-            return {"error": str(e), "choices": [{"message": {"content": f"[LLM错误] {str(e)}"}}]}
+            except Exception as e:
+                if attempt < max_retries:
+                    print(f"[LLM] 第{attempt+1}次调用失败: {e}, 等待3秒后重试...")
+                    time.sleep(3)
+                else:
+                    print(f"[LLM] 调用失败(已重试{max_retries}次): {e}")
+                    return {"error": str(e), "choices": [{"message": {"content": f"[LLM错误] {str(e)}"}}]}
     
     def _echo_fallback(self, messages: list[dict]) -> str:
         """Echo模式 — 返回纯文本，仅供内部降级调用"""

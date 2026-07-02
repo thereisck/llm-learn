@@ -95,7 +95,7 @@ public class SmartAssistantExample {
      * LangChain4j: OpenAiChatModel.builder() + baseUrl配置
      * 两者本质一样，只是Java的builder模式比Python的字典参数更规范
      */
-    private static ChatModel createChatModel() {
+    public static ChatModel createChatModel() {
         String apiKey = System.getenv("SILICONFLOW_API_KEY");
         if (apiKey == null || apiKey.isEmpty()) {
             apiKey = ""; // fallback

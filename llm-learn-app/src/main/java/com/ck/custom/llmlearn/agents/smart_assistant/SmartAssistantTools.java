@@ -161,11 +161,9 @@ public class SmartAssistantTools {
         }
 
         try {
-            // 用ScriptEngine计算（跟Python版用eval思路一致）
-            javax.script.ScriptEngineManager manager = new javax.script.ScriptEngineManager();
-            javax.script.ScriptEngine engine = manager.getEngineByName("js");
-            Object result = engine.eval(expression);
-
+            // ⚠️ Java 15+移除了Nashorn JS引擎，ScriptEngine("js")返回null
+            // 改用纯Java递归下降解析器 SimpleCalculator
+            double result = SimpleCalculator.eval(expression);
             String output = expression + " = " + result;
             log.info("   结果: {}", output);
             return output;
